@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SheetLayout PRO | Optimizador de Materiales</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="branding">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTE5IDMuNUg1QzMuOSAzLjUgMyA0LjQgMyA1LjV2MTNjMCAxLjEgMC45IDIgMiAyaDE0YzEuMSAwIDItMC45IDItMnYtMTNjMC0xLjEtMC45LTItMi0yem0tMSAxNkg2Yy0wLjYgMC0xLTAuNC0xLTFWN2gxNHYxMS41YzAgMC42LTAuNCAxLTEgMXpNMTIgMTBsLTMgNGg2bC0zLTR6IiBmaWxsPSIjZmZmIi8+PC9zdmc+" 
+                     alt="Logo" class="logo">
+                <h1>SheetLayout PRO</h1>
+            </div>
+        </header>
+
+        <main class="dashboard">
+            <section class="input-panel">
+                <div class="input-card">
+                    <h2 class="section-title">📐 Dimensiones de Pared</h2>
+                    <div class="input-group">
+                        <label class="input-label">
+                            <span class="label-text">Ancho (m)</span>
+                            <input type="number" id="wallWidth" class="input-field" step="0.1" value="10" required>
+                        </label>
+                        <label class="input-label">
+                            <span class="label-text">Alto (m)</span>
+                            <input type="number" id="wallHeight" class="input-field" step="0.1" value="3" required>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="input-card">
+                    <h2 class="section-title">📦 Especificaciones de Lámina</h2>
+                    <div class="input-group">
+                        <label class="input-label">
+                            <span class="label-text">Ancho (m)</span>
+                            <input type="number" id="sheetWidth" class="input-field" step="0.1" value="1.2" required>
+                        </label>
+                        <label class="input-label">
+                            <span class="label-text">Alto (m)</span>
+                            <input type="number" id="sheetHeight" class="input-field" step="0.1" value="2.4" required>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="input-card">
+                    <h2 class="section-title">⚙️ Modo de Corte</h2>
+                    <div class="input-group">
+                        <select id="cuttingMode" class="input-field">
+                            <option value="panel">Panel Liso (Rotaciones permitidas)</option>
+                            <option value="lambrin">Lambrin (Solo vertical)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button class="primary-btn" onclick="calculateLayout()">
+                    🚀 Calcular disposición
+                </button>
+            </section>
+
+            <section class="results-panel">
+                <div class="visualization-card">
+                    <h2 class="section-title">🏗️ Disposición en la Pared</h2>
+                    <div class="wall-visualization-wrapper">
+                        <div id="wallContainer" class="wall-container"></div>
+                        <div class="wall-legend"></div>
+                    </div>
+                </div>
+
+                <div class="visualization-card">
+                    <h2 class="section-title">✂️ Optimización de Cortes</h2>
+                    <div id="sheetContainer" class="sheets-layout"></div>
+                </div>
+
+                <div class="summary-card">
+                    <h2 class="section-title">📊 Resumen de Materiales</h2>
+                    <div id="results" class="results-grid"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
